@@ -4,11 +4,11 @@ namespace Main
 {
     internal class GuessNumber
     {
-        // Метод запуска игры
+
         public static void Run()
         {
-            Random rnd = new Random();          // Генератор случайных чисел
-            int secret = rnd.Next(1, 101);     // Загаданное число от 1 до 100
+            Random rnd = new Random();          
+            int secret = rnd.Next(1, 101);     
             int guess = 0;
             int attempts = 0;
 
@@ -19,14 +19,14 @@ namespace Main
                 Console.Write("Твой вариант: ");
                 string input = Console.ReadLine();
 
-                // Проверяем, ввёл ли пользователь число
+
                 if (!int.TryParse(input, out guess))
                 {
                     Console.WriteLine("Пожалуйста, введи число!");
-                    continue; // Если не число, продолжаем цикл
+                    continue; 
                 }
 
-                attempts++; // Считаем попытку
+                attempts++; 
 
                 if (guess < secret)
                     Console.WriteLine("bБольше!");
@@ -38,3 +38,4 @@ namespace Main
         }
     }
 }
+
