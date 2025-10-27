@@ -25,31 +25,30 @@ namespace Main
                     continue;
                 }
 
-                // Убираем пробелы и приводим к нижнему регистру
                 string player = input.Trim().ToLower();
 
                 if (player == "выход") break;
 
-                // Проверка на корректный ввод
+         
                 if (Array.IndexOf(options, player) == -1)
                 {
                     Console.WriteLine("Неверный ввод! Попробуй ещё раз.");
                     continue;
                 }
 
-                // Выбор компьютера
+ 
                 string computer = options[rnd.Next(0, options.Length)];
                 Console.WriteLine($"Компьютер выбрал: {computer}");
 
-                // Определяем победителя
+   
                 if (player == computer)
                     Console.WriteLine("Ничья!");
                 else if ((player == "камень" && computer == "ножницы") ||
                          (player == "ножницы" && computer == "бумага") ||
                          (player == "бумага" && computer == "камень"))
-                    Console.WriteLine("Ты выиграл! 🎉");
+                    Console.WriteLine("Ты выиграл!");
                 else
-                    Console.WriteLine("Компьютер выиграл! 💻");
+                    Console.WriteLine("Компьютер выиграл!");
 
                 Console.WriteLine();
             }
@@ -58,3 +57,4 @@ namespace Main
         }
     }
 }
+
