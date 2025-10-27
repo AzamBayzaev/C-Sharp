@@ -6,9 +6,9 @@ namespace Main
     enum MoveType
     {
         None = 0,
-        Diagonal = 1,   // ход по диагонали
-        Straight = 2,   // ход по прямой линии (вверх, вниз, влево, вправо)
-        LShape = 4      // ход коня "буквой Г"
+        Diagonal = 1,  
+        Straight = 2,  
+        LShape = 4     
     }
 
     enum ChessPiece
@@ -68,3 +68,4 @@ namespace Main
         }
     }
 }
+
