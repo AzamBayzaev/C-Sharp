@@ -1,6 +1,4 @@
-﻿using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
+using System;
 namespace Main
 {
     internal class Program
@@ -18,14 +16,17 @@ namespace Main
                 }
             }
 
-            Method(2,3,4,6,8,9);
+            Method(1,2,3,4,5,6);
 
             void Method2(params object[] paramList)
             {
-                Console.WriteLine(paramList.ToString());
-
+                foreach (var item in paramList)
+                {
+                    Console.WriteLine($"Type: {item.GetType()}, Value: {item}");
+                }
             }
-            Method2(2, 3, 4, 6, 8, 9);
+            
+            Method2(5, "Hello", 3.14, true, 'A');
         }
     }
 }
