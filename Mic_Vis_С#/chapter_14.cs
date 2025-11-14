@@ -1,6 +1,4 @@
-﻿using Main;
-using System;
-using System.Dynamic;
+using Main;
 namespace Main
 {
     interface A
@@ -35,7 +33,7 @@ namespace Main
         {
             this.Name = name;
             this.Age = age;
-            if (gender == 'M' && gender == 'W') { Gender = gender; }
+            if (gender == 'M' || gender == 'W') { Gender = gender; }
 
         }
         public void PrintInfo() => Console.WriteLine($"Name: {name} Age: {age} Gender: {Gender}");
