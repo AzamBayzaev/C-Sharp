@@ -1,6 +1,4 @@
-﻿using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
+using System;
 namespace Main
 {
     class Animals
@@ -29,8 +27,8 @@ namespace Main
             var cat = new Cat("Tima");
             cat.MakeSound();
 
-            IntExtensions.IsEven(5);
-
+            var r = IntExtensions.IsEven(5);
+            Console.WriteLine(r);
         }
     }
 
