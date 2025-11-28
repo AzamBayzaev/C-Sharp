@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 class Program
 {
     static void Main()
@@ -14,7 +14,7 @@ class Program
         int D = (b * b) - 4 * a * c;
         if (D > 0) 
         { 
-            Console.WriteLine($"Your equation: {a}^2+{b}x+{c}=0");
+            Console.WriteLine($"Your equation: {a}^2+({b})x+({c})=0");
             Console.WriteLine($"your Discromenant: {D}");
             Console.WriteLine($"first root {(-b + Math.Sqrt(D)) / 2 * a}");
             Console.WriteLine($"second root {(-b - Math.Sqrt(D)) / 2 * a}"); 
@@ -22,7 +22,7 @@ class Program
         if (D < 0) Console.WriteLine($"not find a root D = {D}");
         if (D == 0)
         {
-            Console.WriteLine($"Your equation: {a}^2+{b}x+{c}=0");
+            Console.WriteLine($"Your equation: {a}^2+({b})x+({c})=0");
             Console.WriteLine($"your Discromenant: {D}");
             Console.WriteLine($"find one root {-(b / 2 * a)}");
         }
