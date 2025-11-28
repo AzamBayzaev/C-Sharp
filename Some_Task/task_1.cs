@@ -67,7 +67,12 @@ class Program
                     throw new Exception("продукт не найденно");
                 }
             }
-            if (select == "d") bools = false;
+            if (select == "d")
+            {
+                Console.WriteLine("спасибо ради всчречи");
+                bools = false;
+            }
         }
     }
 }
+
