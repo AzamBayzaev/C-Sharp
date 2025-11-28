@@ -21,9 +21,14 @@ class Program
 
             if (select == "a")
             {
+                if(products.Count > 0)
                 foreach (var i in products)
                 {
                     Console.WriteLine($"Name: {i.Key}, Quantity: {i.Value}");
+                }
+                else
+                {
+                    Console.WriteLine("словарь пуст");
                 }
             }
             if (select == "b")
@@ -36,14 +41,14 @@ class Program
 
                 if (!string.IsNullOrWhiteSpace(_name))
                 {
-                        if (products.ContainsKey(_name))
-                        {
-                            products[_name] += _quantity;
-                        }
-                        else
-                        {
-                            products.Add(_name, _quantity);
-                        }                
+                    if (products.ContainsKey(_name))
+                    {
+                        products[_name] += _quantity;
+                    }
+                    else
+                    {
+                        products.Add(_name, _quantity);
+                    }
                 }
             }
             if (select == "c")
