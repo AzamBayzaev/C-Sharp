@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -112,7 +112,7 @@ class Program
 
         _1queH.Add(new Hospital("Абду", 150));
         _1queH.Add(new Hospital("Хусен", 100));
-        _1queH.Add(new Hospital("Анущ", 80));
+        _1queH.Add(new Hospital("Ану", 80));
 
         _1queBb.Add(new BaberShop("Азам", 20));
         _1queBb.Add(new BaberShop("Азамат", 10));
