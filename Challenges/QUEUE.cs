@@ -1,105 +1,65 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 interface IClient
 {
     string Name { get; }
     decimal PriceOfSupport { get; }
-    int? TicketId { get; set; } 
+    int? TicketId { get; set; }
 }
-
 class _Queue<T> where T : IClient
 {
     private Queue<T> _Que { get; } = new Queue<T>();
-    private int _nextTicket = 1; 
-
+    private int _nextTicket = 1;
     public int Id { get; }
     public int MaxLength { get; }
-    public decimal TotalIncome { get; private set; } = 0;
-
     public _Queue(int id, int maxLength)
     {
         Id = id;
         MaxLength = maxLength;
     }
-
     public void Add(T client)
     {
         if (_Que.Count >= MaxLength) throw new Exception("Очеред переполнен");
-
-        client.TicketId = _nextTicket++; 
+        client.TicketId = _nextTicket++;
         _Que.Enqueue(client);
-        Console.WriteLine($"{client.Name} добавлен в очеред {Id} ({typeof(T).Name}), чек #{client.TicketId}");
+        Console.WriteLine($"{client.Name} добавлен в очеред {Id} ({typeof(T).Name}), чек -{client.TicketId}");
     }
-
     public void Serve()
     {
-        if (_Que.Count == 0)
-        {
-            Console.WriteLine($"Очердь {Id} пус");
-            return;
-        }
-
+        if (_Que.Count == 0) {Console.WriteLine($"Очердь {Id} пус"); return;}
         var client = _Que.Dequeue();
-        TotalIncome += client.PriceOfSupport;
-        Console.WriteLine($"{client.Name} обслужн, платит {client.PriceOfSupport}, чек #{client.TicketId} онулирован");
-
-        client.TicketId = null; 
+        Console.WriteLine($"{client.Name} обслужн, платит {client.PriceOfSupport}, чек -{client.TicketId} онулирован");
+        client.TicketId = null;
     }
-
     public void Info()
     {
-        if (_Que.Count == 0)
-        {
-            Console.WriteLine($"Очередь {Id} ({typeof(T).Name}) пуст");
-            return;
-        }
-
+        if (_Que.Count == 0){Console.WriteLine($"Очередь {Id} ({typeof(T).Name}) пуст");return;}
         Console.WriteLine($"Очередь {Id} ({typeof(T).Name}), клиентов в очереди: {_Que.Count}");
-        Console.WriteLine("В очереди: " + string.Join(", ", _Que.Select(c => $"{c.Name} (чек #{c.TicketId})")));
+        Console.WriteLine("В очереди: " + string.Join(", ", _Que.Select(c => $"{c.Name} (чек -{c.TicketId})")));
     }
 }
-
 class Hospital : IClient
 {
     public string Name { get; }
     public decimal PriceOfSupport { get; }
     public int? TicketId { get; set; }
-
-    public Hospital(string name, decimal price)
-    {
-        Name = name;
-        PriceOfSupport = price;
-    }
+    public Hospital(string name, decimal price) { Name = name; PriceOfSupport = price; }
 }
-
 class BaberShop : IClient
 {
     public string Name { get; }
     public decimal PriceOfSupport { get; }
     public int? TicketId { get; set; }
-
-    public BaberShop(string name, decimal price)
-    {
-        Name = name;
-        PriceOfSupport = price;
-    }
+    public BaberShop(string name, decimal price){Name = name;PriceOfSupport = price;}
 }
-
 class Bank : IClient
 {
     public string Name { get; }
     public decimal PriceOfSupport { get; }
     public int? TicketId { get; set; }
-
-    public Bank(string name, decimal price)
-    {
-        Name = name;
-        PriceOfSupport = price;
-    }
+    public Bank(string name, decimal price){Name = name; PriceOfSupport = price;}
 }
-
 class Program
 {
     static void Main()
@@ -112,7 +72,7 @@ class Program
 
         _1queH.Add(new Hospital("Абду", 150));
         _1queH.Add(new Hospital("Хусен", 100));
-        _1queH.Add(new Hospital("Ану", 80));
+        _1queH.Add(new Hospital("Ануш", 80));
 
         _1queBb.Add(new BaberShop("Азам", 20));
         _1queBb.Add(new BaberShop("Азамат", 10));
