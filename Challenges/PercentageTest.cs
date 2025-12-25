@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 class Program
 {
     static void Main()
     {
-        Console.OutputEncoding = System.Text.Encoding.UTF8;
         Perc p1 = new Perc(40);
         Perc p2 = new Perc(35);
         Perc p3 = (Perc)20;      
